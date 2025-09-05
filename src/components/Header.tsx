@@ -47,9 +47,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTrip, onNewTrip, onSignIn
         <div className="flex items-center justify-between py-4">
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-sky-500 to-blue-600 rounded-lg flex items-center justify-center">
-                <MapPin className="w-4 h-4 text-white" />
-              </div>
+              <img src="/logo.png" alt="TravelGenie Logo" className="w-8 h-8 object-contain" />
               <h1 className="text-2xl font-bold text-gray-900 dark:text-white">TravelGenie</h1>
             </div>
             

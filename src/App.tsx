@@ -91,8 +91,8 @@ function App() {
         <Header currentTrip={null} onNewTrip={handleNewTrip} onSignIn={handleSignIn} onShowSettings={handleShowSettings} onDeleteTrip={handleDeleteTrip} />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center">
-            <div className="w-24 h-24 bg-gradient-to-r from-sky-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-8">
-              <MapPin className="w-12 h-12 text-white" />
+            <div className="w-24 h-24 mx-auto mb-8">
+              <img src="/logo.png" alt="TravelGenie Logo" className="w-full h-full object-contain" />
             </div>
             <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Plan Your Perfect Trip with TravelGenie
