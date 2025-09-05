@@ -136,7 +136,7 @@ function App() {
               <img src="/logo.png" alt="TravelGenie Logo" className="w-full h-full object-contain" />
             </div>
             <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Plan Your Perfect Trip with TravelGenie
+              Plan Your Perfect Trip with TravelThread
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
               Sign in to create detailed itineraries, track your budget, and get AI-powered recommendations for unforgettable travel experiences.
@@ -157,7 +157,7 @@ function App() {
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">AI Assistant</h3>
                 <p className="text-gray-600 dark:text-gray-300">
-                  Get personalized recommendations from your dedicated TravelGenie
+                  Get personalized recommendations from your dedicated TravelThread
                 </p>
               </div>
               <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">

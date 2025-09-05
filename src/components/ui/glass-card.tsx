@@ -20,7 +20,7 @@ export interface GlassCardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
-  ({ className, title = "TravelGenie", description = "Plan amazing trips with AI-powered recommendations and smart itinerary management.", showSocials = true, ...props }, ref) => {
+  ({ className, title = "TravelThread", description = "Plan amazing trips with AI-powered recommendations and smart itinerary management.", showSocials = true, ...props }, ref) => {
     return (
       <div
         ref={ref}

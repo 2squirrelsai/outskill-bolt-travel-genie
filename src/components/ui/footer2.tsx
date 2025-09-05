@@ -25,8 +25,8 @@ interface Footer2Props {
 const Footer2 = ({
   logo = {
     src: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=80&fit=crop&crop=center",
-    alt: "TravelGenie Logo",
-    title: "TravelGenie",
+    alt: "TravelThread Logo",
+    title: "TravelThread",
     url: "/",
   },
   tagline = "Plan amazing trips with AI-powered recommendations.",
@@ -68,7 +68,7 @@ const Footer2 = ({
       ],
     },
   ],
-  copyright = "© 2024 TravelGenie. All rights reserved.",
+  copyright = "© 2024 TravelThread. All rights reserved.",
   bottomLinks = [
     { text: "Terms and Conditions", url: "#terms" },
     { text: "Privacy Policy", url: "#privacy" },

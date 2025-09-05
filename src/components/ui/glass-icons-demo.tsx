@@ -40,7 +40,7 @@ const GlassIconsDemo = () => {
         {/* Header */}
         <div className="text-center space-y-4">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
-            TravelGenie Features
+            TravelThread Features
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Discover all the amazing features that make planning your perfect trip effortless and enjoyable

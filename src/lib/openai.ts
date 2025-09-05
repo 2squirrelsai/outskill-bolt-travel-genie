@@ -35,7 +35,7 @@ export const generateTravelResponse = async (
   }
 
   try {
-    const systemPrompt = `You are TravelGenie, an expert AI travel assistant. You help users plan amazing trips with personalized recommendations.
+    const systemPrompt = `You are TravelThread, an expert AI travel assistant. You help users plan amazing trips with personalized recommendations.
 
 Current Trip Context:
 - Destination: ${context.destination}

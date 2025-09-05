@@ -48,7 +48,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTrip, onNewTrip, onSignIn
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
               <img src="/logo.png" alt="TravelGenie Logo" className="w-8 h-8 object-contain" />
-              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">TravelGenie</h1>
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">TravelThread</h1>
             </div>
             
             {currentTrip && (

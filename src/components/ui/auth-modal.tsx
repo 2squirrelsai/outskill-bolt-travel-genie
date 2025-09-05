@@ -28,7 +28,7 @@ export function AuthModal({ onGoogleSignIn, onEmailContinue, ...props }: AuthMod
 		<Modal {...props}>
 			<ModalContent>
 				<ModalHeader>
-					<ModalTitle>Sign In or Join TravelGenie!</ModalTitle>
+					<ModalTitle>Sign In or Join TravelThread!</ModalTitle>
 				</ModalHeader>
 				<ModalBody>
 					<Button

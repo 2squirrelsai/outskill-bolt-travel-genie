@@ -123,13 +123,13 @@ export const TripsListView: React.FC<TripsListViewProps> = ({
           {trips.length === 0 ? (
             <div className="text-center py-16">
               <div className="w-24 h-24 mx-auto mb-8">
-                <img src="/logo.png" alt="TravelGenie Logo" className="w-full h-full object-contain opacity-50" />
+                <img src="/logo.png" alt="TravelThread Logo" className="w-full h-full object-contain opacity-50" />
               </div>
               <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
                 No trips yet
               </h2>
               <p className="text-gray-600 dark:text-gray-300 mb-8 max-w-md mx-auto">
-                Create your first trip to start planning amazing adventures with TravelGenie's AI-powered recommendations.
+                Create your first trip to start planning amazing adventures with TravelThread's AI-powered recommendations.
               </p>
               <button
                 onClick={onNewTrip}

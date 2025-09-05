@@ -19,7 +19,7 @@ export const TravelAssistant: React.FC<TravelAssistantProps> = ({
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: `Hi! I'm TravelGenie, your personal travel assistant! 👋 I'm excited to help you plan an amazing trip to ${trip.destination}. What would you like to explore or add to your itinerary?`,
+      text: `Hi! I'm TravelThread, your personal travel assistant! 👋 I'm excited to help you plan an amazing trip to ${trip.destination}. What would you like to explore or add to your itinerary?`,
       sender: 'assistant',
       timestamp: new Date(),
     }
@@ -111,7 +111,7 @@ export const TravelAssistant: React.FC<TravelAssistantProps> = ({
             <Sparkles className="w-4 h-4 text-white" />
           </div>
           <div>
-            <h3 className="font-semibold text-gray-900">TravelGenie</h3>
+            <h3 className="font-semibold text-gray-900">TravelThread</h3>
             <p className="text-sm text-gray-600">Your AI Travel Assistant</p>
           </div>
         </div>
