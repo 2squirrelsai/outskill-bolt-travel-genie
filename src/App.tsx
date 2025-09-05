@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { TripCreator } from './components/TripCreator';
 import { ItineraryView } from './components/ItineraryView';
+import { TripsListView } from './components/TripsListView';
 import { AuthModal } from './components/AuthModal';
 import { SettingsModal } from './components/SettingsModal';
 import { DeleteTripModal } from './components/DeleteTripModal';
@@ -15,7 +16,7 @@ function App() {
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [showSettingsModal, setShowSettingsModal] = useState(false);
   const [showDeleteTripModal, setShowDeleteTripModal] = useState(false);
-  const { currentTrip, createTrip, addActivity, removeActivity, editActivity, loadTrips, loading, deleteTrip } = useTrip();
+  const { currentTrip, trips, createTrip, addActivity, removeActivity, editActivity, loadTrips, loading, deleteTrip, setCurrentTrip } = useTrip();
   const { user, loading: authLoading } = useAuth();
 
   useEffect(() => {
@@ -31,8 +32,11 @@ function App() {
     endDate: string,
     budget: number
   ) => {
-    createTrip(title, destination, startDate, endDate, budget);
+    const newTrip = createTrip(title, destination, startDate, endDate, budget);
     setShowTripCreator(false);
+    if (newTrip) {
+      setCurrentTrip(newTrip);
+    }
   };
 
   const handleNewTrip = () => {
@@ -60,6 +64,7 @@ function App() {
       try {
         await deleteTrip(currentTrip.id);
         setShowDeleteTripModal(false);
+        setCurrentTrip(null); // Go back to trips list
         // Optional: Show success message
         console.log('Trip deleted successfully');
       } catch (error) {
@@ -69,6 +74,13 @@ function App() {
     }
   };
 
+  const handleSelectTrip = (trip: any) => {
+    setCurrentTrip(trip);
+  };
+
+  const handleBackToTripsList = () => {
+    setCurrentTrip(null);
+  };
   if (authLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-blue-50 flex items-center justify-center">
@@ -91,11 +103,33 @@ function App() {
     );
   }
 
-  if (!user || !currentTrip) {
+  // Show trips list if user is logged in but no current trip is selected
+  if (user && !currentTrip) {
+    return (
+      <>
+        <Header currentTrip={null} onNewTrip={handleNewTrip} onSignIn={handleSignIn} onShowSettings={handleShowSettings} onDeleteTrip={undefined} />
+        <TripsListView 
+          trips={trips}
+          onSelectTrip={handleSelectTrip}
+          onNewTrip={handleNewTrip}
+          onDeleteTrip={deleteTrip}
+          loading={loading}
+        />
+        <Footer2 />
+        
+        {/* Modals */}
+        <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
+        <SettingsModal isOpen={showSettingsModal} onClose={() => setShowSettingsModal(false)} />
+      </>
+    );
+  }
+
+  // Show landing page if not logged in
+  if (!user) {
     return (
       <>
       <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-        <Header currentTrip={null} onNewTrip={handleNewTrip} onSignIn={handleSignIn} onShowSettings={handleShowSettings} onDeleteTrip={handleDeleteTrip} />
+        <Header currentTrip={null} onNewTrip={handleNewTrip} onSignIn={handleSignIn} onShowSettings={handleShowSettings} onDeleteTrip={undefined} />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center">
             <div className="w-24 h-24 mx-auto mb-8">
@@ -105,10 +139,7 @@ function App() {
               Plan Your Perfect Trip with TravelGenie
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-              {user 
-                ? 'Create detailed itineraries, track your budget, and get AI-powered recommendations for unforgettable travel experiences.'
-                : 'Sign in to create detailed itineraries, track your budget, and get AI-powered recommendations for unforgettable travel experiences.'
-              }
+              Sign in to create detailed itineraries, track your budget, and get AI-powered recommendations for unforgettable travel experiences.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
@@ -143,7 +174,7 @@ function App() {
               onClick={handleNewTrip}
               className="bg-gradient-to-r from-sky-500 to-blue-600 text-white px-8 py-4 rounded-xl hover:from-sky-600 hover:to-blue-700 transition-all duration-200 font-semibold text-lg shadow-lg hover:shadow-xl"
             >
-              {user ? 'Start Planning Your Trip' : 'Sign In to Start Planning'}
+              Sign In to Start Planning
             </button>
           </div>
         </div>
@@ -157,6 +188,7 @@ function App() {
     );
   }
 
+  // Show current trip itinerary
   return (
     <>
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -166,6 +198,7 @@ function App() {
         onAddActivity={addActivity}
         onRemoveActivity={removeActivity}
         onEditActivity={editActivity}
+        onBackToTripsList={handleBackToTripsList}
       />
       <Footer2 />
     </div>

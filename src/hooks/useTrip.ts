@@ -414,15 +414,13 @@ export const useTrip = () => {
       });
 
       setTrips(convertedTrips);
-      if (convertedTrips.length > 0 && !currentTrip) {
-        setCurrentTrip(convertedTrips[0]);
-      }
+      // Don't automatically set current trip - let user choose
     } catch (error) {
       console.error('Error loading trips:', error);
     } finally {
       setLoading(false);
     }
-  }, [user, currentTrip]);
+  }, [user]);
 
   return {
     currentTrip,

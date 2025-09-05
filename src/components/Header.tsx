@@ -10,7 +10,7 @@ interface HeaderProps {
   onNewTrip: () => void;
   onSignIn: () => void;
   onShowSettings?: () => void;
-  onDeleteTrip?: () => void;
+  onDeleteTrip?: () => void | undefined;
 }
 
 export const Header: React.FC<HeaderProps> = ({ currentTrip, onNewTrip, onSignIn, onShowSettings, onDeleteTrip }) => {
@@ -88,7 +88,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTrip, onNewTrip, onSignIn
                   onClick={onNewTrip}
                   className="bg-gradient-to-r from-sky-500 to-blue-600 text-white px-4 py-2 rounded-lg hover:from-sky-600 hover:to-blue-700 transition-all duration-200 font-medium shadow-sm hover:shadow-md"
                 >
-                  {currentTrip ? 'New Trip' : 'Start Planning'}
+                  New Trip
                 </button>
                 <UserMenu onShowSettings={onShowSettings} onDeleteTrip={onDeleteTrip} />
               </>

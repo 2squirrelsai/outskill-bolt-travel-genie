@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { Trip, Day } from '../types';
 import { DayCard } from './DayCard';
 import { TravelAssistant } from './TravelAssistant';
-import { Calendar, MessageCircle, MapPin } from 'lucide-react';
+import { Calendar, MessageCircle, MapPin, ArrowLeft } from 'lucide-react';
 
 interface ItineraryViewProps {
   trip: Trip;
   onAddActivity: (dayId: string, activity: any) => void;
   onRemoveActivity: (dayId: string, activityId: string) => void;
   onEditActivity: (dayId: string, activityId: string, updatedActivity: any) => void;
+  onBackToTripsList?: () => void;
 }
 
 export const ItineraryView: React.FC<ItineraryViewProps> = ({
@@ -16,6 +17,7 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
   onAddActivity,
   onRemoveActivity,
   onEditActivity,
+  onBackToTripsList,
 }) => {
   const [showAssistant, setShowAssistant] = useState(false);
   const [selectedDay, setSelectedDay] = useState<string | null>(null);
@@ -43,6 +45,15 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
       <div className="mb-8">
         <div className="flex items-center justify-between">
           <div>
+            {onBackToTripsList && (
+              <button
+                onClick={onBackToTripsList}
+                className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors mb-4"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span className="text-sm font-medium">Back to Trips</span>
+              </button>
+            )}
             <h1 className="text-3xl font-bold text-gray-900 mb-2">{trip.title}</h1>
             <div className="flex items-center space-x-4 text-gray-600">
               <div className="flex items-center space-x-2">
