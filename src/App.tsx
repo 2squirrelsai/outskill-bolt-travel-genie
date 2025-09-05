@@ -3,10 +3,10 @@ import { Header } from './components/Header';
 import { TripCreator } from './components/TripCreator';
 import { ItineraryView } from './components/ItineraryView';
 import { TripsListView } from './components/TripsListView';
-import { AuthModal } from './components/AuthModal';
 import { SettingsModal } from './components/SettingsModal';
 import { DeleteTripModal } from './components/DeleteTripModal';
 import { Footer2 } from './components/ui/footer2';
+import { SignInPage } from './components/ui/sign-in';
 import SignInPageDemo from './components/ui/sign-in-demo';
 import { MapPin } from 'lucide-react';
 import { useTrip } from './hooks/useTrip';
@@ -14,12 +14,12 @@ import { useAuth } from './hooks/useAuth';
 
 function App() {
   const [showTripCreator, setShowTripCreator] = useState(false);
-  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [showSignInPage, setShowSignInPage] = useState(false);
   const [showSettingsModal, setShowSettingsModal] = useState(false);
   const [showDeleteTripModal, setShowDeleteTripModal] = useState(false);
   const [showSignInDemo, setShowSignInDemo] = useState(false);
   const { currentTrip, trips, createTrip, addActivity, removeActivity, editActivity, loadTrips, loading, deleteTrip, setCurrentTrip } = useTrip();
-  const { user, loading: authLoading } = useAuth();
+  const { user, loading: authLoading, signIn, signUp } = useAuth();
 
   // Test demo with URL parameter
   useEffect(() => {
@@ -51,14 +51,14 @@ function App() {
 
   const handleNewTrip = () => {
     if (!user) {
-      setShowAuthModal(true);
+      setShowSignInPage(true);
       return;
     }
     setShowTripCreator(true);
   };
 
   const handleSignIn = () => {
-    setShowAuthModal(true);
+    setShowSignInPage(true);
   };
 
   const handleShowSettings = () => {
@@ -91,6 +91,40 @@ function App() {
   const handleBackToTripsList = () => {
     setCurrentTrip(null);
   };
+
+  const handleAuthSignIn = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const email = formData.get('email') as string;
+    const password = formData.get('password') as string;
+    
+    if (!email || !password) return;
+    
+    try {
+      const { error } = await signIn(email, password);
+      if (!error) {
+        setShowSignInPage(false);
+      }
+    } catch (error) {
+      console.error('Sign in error:', error);
+    }
+  };
+
+  const handleGoogleSignIn = () => {
+    // TODO: Implement Google OAuth
+    console.log('Google sign in clicked');
+  };
+
+  const handleResetPassword = () => {
+    // TODO: Implement password reset
+    console.log('Reset password clicked');
+  };
+
+  const handleCreateAccount = () => {
+    // TODO: Navigate to sign up flow
+    console.log('Create account clicked');
+  };
+
   if (authLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-blue-50 flex items-center justify-center">
@@ -101,6 +135,41 @@ function App() {
           <p className="text-gray-600">Loading TravelGenie...</p>
         </div>
       </div>
+    );
+  }
+
+  // Show SignIn page if requested
+  if (showSignInPage) {
+    return (
+      <SignInPage
+        title={<span className="font-light text-gray-900 dark:text-white tracking-tighter">Welcome to TravelThread</span>}
+        description="Sign in to plan amazing trips with AI-powered recommendations"
+        heroImageSrc="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=2160&q=80"
+        testimonials={[
+          {
+            avatarSrc: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face",
+            name: "Sarah Chen",
+            handle: "@sarahtravel",
+            text: "TravelThread made planning my European adventure so easy! The AI recommendations were spot-on."
+          },
+          {
+            avatarSrc: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+            name: "Marcus Johnson",
+            handle: "@marcusexplores",
+            text: "Best travel planning app I've used. The budget tracking and itinerary features are incredible."
+          },
+          {
+            avatarSrc: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+            name: "David Martinez",
+            handle: "@davidwanders",
+            text: "The personalized recommendations helped me discover hidden gems I never would have found otherwise."
+          }
+        ]}
+        onSignIn={handleAuthSignIn}
+        onGoogleSignIn={handleGoogleSignIn}
+        onResetPassword={handleResetPassword}
+        onCreateAccount={handleCreateAccount}
+      />
     );
   }
 
@@ -143,7 +212,6 @@ function App() {
         <Footer2 />
         
         {/* Modals */}
-        <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
         <SettingsModal isOpen={showSettingsModal} onClose={() => setShowSettingsModal(false)} />
       </>
     );
@@ -220,7 +288,6 @@ function App() {
       </div>
       
       {/* Modals */}
-      <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
       <SettingsModal isOpen={showSettingsModal} onClose={() => setShowSettingsModal(false)} />
       </>
     );
@@ -242,7 +309,6 @@ function App() {
     </div>
     
     {/* Modals */}
-    <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
     <SettingsModal isOpen={showSettingsModal} onClose={() => setShowSettingsModal(false)} />
     <DeleteTripModal 
       isOpen={showDeleteTripModal} 
