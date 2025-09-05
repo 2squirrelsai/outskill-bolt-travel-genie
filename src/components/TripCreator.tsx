@@ -178,3 +178,5 @@ export const TripCreator: React.FC<TripCreatorProps> = ({ onCreateTrip, onCancel
     </div>
   );
 };
+  )
+}
