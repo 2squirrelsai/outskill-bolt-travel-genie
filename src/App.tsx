@@ -12,7 +12,8 @@ function App() {
   const [showTripCreator, setShowTripCreator] = useState(false);
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [showSettingsModal, setShowSettingsModal] = useState(false);
-  const { currentTrip, createTrip, addActivity, removeActivity, editActivity, loadTrips, loading } = useTrip();
+  const [showDeleteTripModal, setShowDeleteTripModal] = useState(false);
+  const { currentTrip, createTrip, addActivity, removeActivity, editActivity, loadTrips, loading, deleteTrip } = useTrip();
   const { user, loading: authLoading } = useAuth();
 
   useEffect(() => {
@@ -48,6 +49,17 @@ function App() {
     setShowSettingsModal(true);
   };
 
+  const handleDeleteTrip = () => {
+    setShowDeleteTripModal(true);
+  };
+
+  const handleConfirmDeleteTrip = async () => {
+    if (currentTrip) {
+      await deleteTrip(currentTrip.id);
+      setShowDeleteTripModal(false);
+    }
+  };
+
   if (authLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-blue-50 flex items-center justify-center">
@@ -74,7 +86,7 @@ function App() {
     return (
       <>
       <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-        <Header currentTrip={null} onNewTrip={handleNewTrip} onSignIn={handleSignIn} onShowSettings={handleShowSettings} />
+        <Header currentTrip={null} onNewTrip={handleNewTrip} onSignIn={handleSignIn} onShowSettings={handleShowSettings} onDeleteTrip={handleDeleteTrip} />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center">
             <div className="w-24 h-24 bg-gradient-to-r from-sky-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-8">

@@ -10,9 +10,10 @@ interface HeaderProps {
   onNewTrip: () => void;
   onSignIn: () => void;
   onShowSettings?: () => void;
+  onDeleteTrip?: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ currentTrip, onNewTrip, onSignIn, onShowSettings }) => {
+export const Header: React.FC<HeaderProps> = ({ currentTrip, onNewTrip, onSignIn, onShowSettings, onDeleteTrip }) => {
   const { user } = useAuth();
 
   const formatCurrency = (amount: number) => {

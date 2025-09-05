@@ -283,6 +283,36 @@ export const useTrip = () => {
       return updatedTrip;
     });
   }, [currentTrip, user]);
+  const deleteTrip = useCallback(async (tripId: string) => {
+    if (!user) return;
+
+    setLoading(true);
+    try {
+      const { error } = await supabase
+        .from('trips')
+        .delete()
+        .eq('id', tripId)
+        .eq('user_id', user.id);
+
+      if (error) {
+        console.error('Error deleting trip:', error);
+        return;
+      }
+
+      // Update local state
+      setTrips(prev => prev.filter(trip => trip.id !== tripId));
+      
+      // If we deleted the current trip, clear it
+      if (currentTrip?.id === tripId) {
+        setCurrentTrip(null);
+      }
+    } catch (error) {
+      console.error('Error deleting trip:', error);
+    } finally {
+      setLoading(false);
+    }
+  }, [user, currentTrip]);
+
   const updatePreferences = useCallback((preferences: Partial<TravelPreferences>) => {
     if (!currentTrip || !user) return;
 

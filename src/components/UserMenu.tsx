@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { User, LogOut, Settings, ChevronDown } from 'lucide-react';
+import { User, LogOut, Settings, ChevronDown, Trash2 } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 
 interface UserMenuProps {
   onShowSettings?: () => void;
+  onDeleteTrip?: () => void;
 }
 
-export const UserMenu: React.FC<UserMenuProps> = ({ onShowSettings }) => {
+export const UserMenu: React.FC<UserMenuProps> = ({ onShowSettings, onDeleteTrip }) => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const { user, signOut } = useAuth();
@@ -31,6 +32,13 @@ export const UserMenu: React.FC<UserMenuProps> = ({ onShowSettings }) => {
     setIsOpen(false);
     if (onShowSettings) {
       onShowSettings();
+    }
+  };
+
+  const handleDeleteTrip = () => {
+    setIsOpen(false);
+    if (onDeleteTrip) {
+      onDeleteTrip();
     }
   };
 
