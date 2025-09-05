@@ -7,6 +7,7 @@ import { AuthModal } from './components/AuthModal';
 import { SettingsModal } from './components/SettingsModal';
 import { DeleteTripModal } from './components/DeleteTripModal';
 import { Footer2 } from './components/ui/footer2';
+import { SignInPageDemo } from './components/ui/sign-in-demo';
 import { MapPin } from 'lucide-react';
 import { useTrip } from './hooks/useTrip';
 import { useAuth } from './hooks/useAuth';
@@ -16,8 +17,17 @@ function App() {
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [showSettingsModal, setShowSettingsModal] = useState(false);
   const [showDeleteTripModal, setShowDeleteTripModal] = useState(false);
+  const [showSignInDemo, setShowSignInDemo] = useState(false);
   const { currentTrip, trips, createTrip, addActivity, removeActivity, editActivity, loadTrips, loading, deleteTrip, setCurrentTrip } = useTrip();
   const { user, loading: authLoading } = useAuth();
+
+  // Test demo with URL parameter
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('demo') === 'signin') {
+      setShowSignInDemo(true);
+    }
+  }, []);
 
   useEffect(() => {
     if (user) {
@@ -90,6 +100,21 @@ function App() {
           </div>
           <p className="text-gray-600">Loading TravelGenie...</p>
         </div>
+      </div>
+    );
+  }
+
+  // Show SignIn demo if requested
+  if (showSignInDemo) {
+    return (
+      <div className="relative">
+        <button
+          onClick={() => setShowSignInDemo(false)}
+          className="absolute top-4 right-4 z-50 bg-black/20 hover:bg-black/40 text-white px-4 py-2 rounded-lg backdrop-blur-sm transition-colors"
+        >
+          ← Back to App
+        </button>
+        <SignInPageDemo />
       </div>
     );
   }
@@ -176,6 +201,19 @@ function App() {
             >
               Sign In to Start Planning
             </button>
+            
+            {/* Demo button for testing */}
+            <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+              <p className="text-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+                Want to see our new sign-in experience?
+              </p>
+              <button
+                onClick={() => setShowSignInDemo(true)}
+                className="bg-gradient-to-r from-purple-500 to-violet-600 text-white px-6 py-3 rounded-lg hover:from-purple-600 hover:to-violet-700 transition-all duration-200 font-medium shadow-sm hover:shadow-md"
+              >
+                View SignIn Demo
+              </button>
+            </div>
           </div>
         </div>
         <Footer2 />
