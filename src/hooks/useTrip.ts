@@ -288,6 +288,7 @@ export const useTrip = () => {
 
     setLoading(true);
     try {
+      // Delete from Supabase with cascade (activities will be deleted automatically due to foreign key constraint)
       const { error } = await supabase
         .from('trips')
         .delete()
@@ -296,7 +297,7 @@ export const useTrip = () => {
 
       if (error) {
         console.error('Error deleting trip:', error);
-        return;
+        throw new Error('Failed to delete trip. Please try again.');
       }
 
       // Update local state
@@ -306,8 +307,11 @@ export const useTrip = () => {
       if (currentTrip?.id === tripId) {
         setCurrentTrip(null);
       }
+      
+      console.log('Trip deleted successfully');
     } catch (error) {
       console.error('Error deleting trip:', error);
+      throw error; // Re-throw to handle in component
     } finally {
       setLoading(false);
     }

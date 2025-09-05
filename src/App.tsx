@@ -57,8 +57,15 @@ function App() {
 
   const handleConfirmDeleteTrip = async () => {
     if (currentTrip) {
-      await deleteTrip(currentTrip.id);
-      setShowDeleteTripModal(false);
+      try {
+        await deleteTrip(currentTrip.id);
+        setShowDeleteTripModal(false);
+        // Optional: Show success message
+        console.log('Trip deleted successfully');
+      } catch (error) {
+        console.error('Failed to delete trip:', error);
+        // Keep modal open on error so user can try again
+      }
     }
   };
 

@@ -66,23 +66,23 @@ export const DeleteTripModal: React.FC<DeleteTripModalProps> = ({
         <div className="p-6 space-y-4">
           <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
             <p className="text-red-800 dark:text-red-200 font-medium mb-2">
-              This action cannot be undone!
+              ⚠️ This action cannot be undone!
             </p>
             <p className="text-red-700 dark:text-red-300 text-sm">
               You are about to permanently delete "<strong>{trip.title}</strong>" and all its activities, 
-              itinerary data, and associated information.
+              itinerary data, budget information, and associated data.
             </p>
           </div>
 
           <div className="space-y-2">
             <p className="text-gray-700 dark:text-gray-300 text-sm">
-              To confirm deletion, please type <strong>DELETE</strong> in the field below:
+              To confirm deletion, please type <strong className="text-red-600 dark:text-red-400">DELETE</strong> in the field below:
             </p>
             <input
               type="text"
               value={confirmText}
               onChange={(e) => setConfirmText(e.target.value)}
-              placeholder="Type DELETE to confirm"
+              placeholder="Type DELETE to confirm deletion"
               disabled={isDeleting}
               className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white disabled:opacity-50"
             />

@@ -92,16 +92,16 @@ export const UserMenu: React.FC<UserMenuProps> = ({ onShowSettings, onDeleteTrip
           {onDeleteTrip && (
             <button
               onClick={handleDeleteTrip}
-              className="w-full text-left px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 flex items-center space-x-2"
+              className="w-full text-left px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 flex items-center space-x-2 border-t border-gray-100 dark:border-gray-700"
             >
               <Trash2 className="w-4 h-4" />
-              <span>Delete Current Trip</span>
+              <span>Delete Trip</span>
             </button>
           )}
           
           <button
             onClick={handleSignOut}
-            className="w-full text-left px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 flex items-center space-x-2"
+            className="w-full text-left px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 flex items-center space-x-2 border-t border-gray-100 dark:border-gray-700"
           >
             <LogOut className="w-4 h-4" />
             <span>Sign Out</span>
