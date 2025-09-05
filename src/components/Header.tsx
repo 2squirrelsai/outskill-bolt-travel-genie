@@ -2,7 +2,7 @@ import React from 'react';
 import { MapPin, Calendar, DollarSign } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import { UserMenu } from './UserMenu';
-import { ThemeToggle } from './ThemeToggle';
+import ThemeSwitch from './ui/theme-switch';
 import { Trip } from '../types';
 
 interface HeaderProps {
@@ -81,7 +81,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTrip, onNewTrip, onSignIn
           </div>
 
           <div className="flex items-center space-x-3">
-            <ThemeToggle />
+            <ThemeSwitch />
             {user ? (
               <>
                 <button
