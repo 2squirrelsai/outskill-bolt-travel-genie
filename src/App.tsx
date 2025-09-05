@@ -4,6 +4,7 @@ import { TripCreator } from './components/TripCreator';
 import { ItineraryView } from './components/ItineraryView';
 import { AuthModal } from './components/AuthModal';
 import { SettingsModal } from './components/SettingsModal';
+import { Footer2 } from './components/ui/footer2';
 import { useTrip } from './hooks/useTrip';
 import { useAuth } from './hooks/useAuth';
 
@@ -125,6 +126,7 @@ function App() {
             </button>
           </div>
         </div>
+        <Footer2 />
       </div>
       
       {/* Modals */}
@@ -144,6 +146,7 @@ function App() {
         onRemoveActivity={removeActivity}
         onEditActivity={editActivity}
       />
+      <Footer2 />
     </div>
     
     {/* Modals */}
