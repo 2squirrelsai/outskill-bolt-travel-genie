@@ -113,7 +113,7 @@ export const TripsListView: React.FC<TripsListViewProps> = ({
             </div>
             <button
               onClick={onNewTrip}
-              className="bg-gradient-to-r from-sky-500 to-blue-600 text-white px-6 py-3 rounded-lg hover:from-sky-600 hover:to-blue-700 transition-all duration-200 font-medium shadow-sm hover:shadow-md flex items-center space-x-2"
+              className="bg-brand-orange text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition-all duration-200 font-medium shadow-sm hover:shadow-md flex items-center space-x-2"
             >
               <Plus className="w-5 h-5" />
               <span>New Trip</span>
@@ -133,7 +133,7 @@ export const TripsListView: React.FC<TripsListViewProps> = ({
               </p>
               <button
                 onClick={onNewTrip}
-                className="bg-gradient-to-r from-sky-500 to-blue-600 text-white px-8 py-4 rounded-xl hover:from-sky-600 hover:to-blue-700 transition-all duration-200 font-semibold text-lg shadow-lg hover:shadow-xl"
+                className="bg-brand-orange text-white px-8 py-4 rounded-xl hover:bg-orange-600 transition-all duration-200 font-semibold text-lg shadow-lg hover:shadow-xl"
               >
                 Plan Your First Trip
               </button>
@@ -154,6 +154,7 @@ export const TripsListView: React.FC<TripsListViewProps> = ({
                       <div className="flex items-start justify-between mb-4">
                         <div className="flex-1">
                           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
+                          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-brand-orange dark:group-hover:text-brand-orange transition-colors">
                             {trip.title}
                           </h3>
                           <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-300">
@@ -211,7 +212,7 @@ export const TripsListView: React.FC<TripsListViewProps> = ({
 
                       <button
                         onClick={() => onSelectTrip(trip)}
-                        className="w-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors font-medium group-hover:bg-sky-50 group-hover:text-sky-700 dark:group-hover:bg-sky-900/20 dark:group-hover:text-sky-300"
+                        className="w-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors font-medium group-hover:bg-orange-50 group-hover:text-brand-orange dark:group-hover:bg-orange-900/20 dark:group-hover:text-brand-orange"
                       >
                         View Trip
                       </button>

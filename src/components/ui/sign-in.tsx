@@ -136,7 +136,7 @@ export const SignInPage: React.FC<SignInPageProps> = ({
 
               <button 
                 type="submit" 
-                className="animate-fade-in-up animation-delay-600 w-full rounded-2xl bg-gradient-to-r from-sky-500 to-blue-600 py-4 font-medium text-white hover:from-sky-600 hover:to-blue-700 transition-all duration-200 shadow-md hover:shadow-lg"
+                className="animate-fade-in-up animation-delay-600 w-full rounded-2xl bg-brand-orange py-4 font-medium text-white hover:bg-orange-600 transition-all duration-200 shadow-md hover:shadow-lg"
               >
                 Sign In
               </button>
@@ -157,6 +157,7 @@ export const SignInPage: React.FC<SignInPageProps> = ({
 
             <p className="animate-fade-in-up animation-delay-900 text-center text-sm text-gray-600 dark:text-gray-400">
               New to TravelThread? <a href="#" onClick={(e) => { e.preventDefault(); onCreateAccount?.(); }} className="text-sky-500 hover:text-sky-600 hover:underline transition-colors">Create Account</a>
+              New to TravelThread? <a href="#" onClick={(e) => { e.preventDefault(); onCreateAccount?.(); }} className="text-brand-orange hover:text-orange-600 hover:underline transition-colors">Create Account</a>
             </p>
           </div>
         </div>

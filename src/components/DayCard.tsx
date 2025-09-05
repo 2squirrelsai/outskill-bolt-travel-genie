@@ -53,7 +53,7 @@ export const DayCard: React.FC<DayCardProps> = ({
         <div className="flex items-center justify-between">
           <div>
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-r from-sky-500 to-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+              <div className="w-8 h-8 bg-brand-orange text-white rounded-full flex items-center justify-center text-sm font-bold">
                 {dayNumber}
               </div>
               <div>
@@ -88,14 +88,14 @@ export const DayCard: React.FC<DayCardProps> = ({
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <button
                 onClick={() => setShowAddModal(true)}
-                className="flex items-center space-x-2 bg-sky-500 text-white px-4 py-2 rounded-lg hover:bg-sky-600 transition-colors"
+                className="flex items-center space-x-2 bg-brand-orange text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors"
               >
                 <Plus className="w-4 h-4" />
                 <span>Add Activity</span>
               </button>
               <button
                 onClick={onSelectForAssistant}
-                className="flex items-center space-x-2 bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors"
+                className="flex items-center space-x-2 bg-brand-navy text-white px-4 py-2 rounded-lg hover:bg-secondary-600 transition-colors"
               >
                 <Sparkles className="w-4 h-4" />
                 <span>Get Suggestions</span>
@@ -118,14 +118,14 @@ export const DayCard: React.FC<DayCardProps> = ({
             <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-gray-100">
               <button
                 onClick={() => setShowAddModal(true)}
-                className="flex items-center space-x-2 text-sky-600 hover:text-sky-700 hover:bg-sky-50 px-3 py-2 rounded-lg transition-colors"
+                className="flex items-center space-x-2 text-brand-orange hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-lg transition-colors"
               >
                 <Plus className="w-4 h-4" />
                 <span>Add Activity</span>
               </button>
               <button
                 onClick={onSelectForAssistant}
-                className="flex items-center space-x-2 text-orange-600 hover:text-orange-700 hover:bg-orange-50 px-3 py-2 rounded-lg transition-colors"
+                className="flex items-center space-x-2 text-brand-navy hover:text-secondary-600 hover:bg-secondary-50 px-3 py-2 rounded-lg transition-colors"
               >
                 <Sparkles className="w-4 h-4" />
                 <span>Get Suggestions</span>

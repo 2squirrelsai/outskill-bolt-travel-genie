@@ -65,6 +65,7 @@ export const TripCreator: React.FC<TripCreatorProps> = ({ onCreateTrip, onCancel
       <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-gradient-to-r from-sky-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mx-auto mb-4">
             <MapPin className="w-8 h-8 text-white" />
           </div>
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Create Your Trip</h2>
@@ -167,7 +168,7 @@ export const TripCreator: React.FC<TripCreatorProps> = ({ onCreateTrip, onCancel
             </button>
             <button
               type="submit"
-              className="flex-1 bg-gradient-to-r from-sky-500 to-blue-600 text-white px-4 py-3 rounded-lg hover:from-sky-600 hover:to-blue-700 transition-all duration-200 font-medium shadow-md hover:shadow-lg"
+              className="flex-1 bg-brand-orange text-white px-4 py-3 rounded-lg hover:bg-orange-600 transition-all duration-200 font-medium shadow-md hover:shadow-lg"
             >
               Create Trip
             </button>

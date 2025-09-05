@@ -265,7 +265,7 @@ function App() {
             </div>
             <button
               onClick={handleNewTrip}
-              className="bg-gradient-to-r from-sky-500 to-blue-600 text-white px-8 py-4 rounded-xl hover:from-sky-600 hover:to-blue-700 transition-all duration-200 font-semibold text-lg shadow-lg hover:shadow-xl"
+              className="bg-brand-navy text-white px-6 py-3 rounded-lg hover:bg-secondary-600 transition-all duration-200 font-medium shadow-sm hover:shadow-md"
             >
               Sign In to Start Planning
             </button>

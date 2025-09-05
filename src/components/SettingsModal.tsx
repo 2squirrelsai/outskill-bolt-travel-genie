@@ -90,7 +90,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
                     onClick={() => setActiveTab(tab.id)}
                     className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-left transition-colors ${
                       activeTab === tab.id
-                        ? 'bg-sky-100 dark:bg-sky-900/50 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-700'
+                        ? 'bg-orange-100 dark:bg-orange-900/50 text-brand-orange dark:text-brand-orange border border-orange-200 dark:border-orange-700'
                         : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                     }`}
                   >
@@ -252,6 +252,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
                         Your travel data is used to provide personalized recommendations and improve your experience.
                       </p>
                       <button className="text-sky-600 hover:text-sky-700 dark:text-sky-400 dark:hover:text-sky-300 text-sm font-medium">
+                      <button className="text-brand-orange hover:text-orange-600 dark:text-brand-orange dark:hover:text-orange-600 text-sm font-medium">
                         View Privacy Policy
                       </button>
                     </div>
@@ -261,6 +262,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
                         Manage your account security settings and password.
                       </p>
                       <button className="text-sky-600 hover:text-sky-700 dark:text-sky-400 dark:hover:text-sky-300 text-sm font-medium">
+                      <button className="text-brand-orange hover:text-orange-600 dark:text-brand-orange dark:hover:text-orange-600 text-sm font-medium">
                         Change Password
                       </button>
                     </div>
@@ -280,6 +282,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
                         Learn how to create your first trip and use TravelThread's features.
                       </p>
                       <button className="text-sky-600 hover:text-sky-700 dark:text-sky-400 dark:hover:text-sky-300 text-sm font-medium">
+                      <button className="text-brand-orange hover:text-orange-600 dark:text-brand-orange dark:hover:text-orange-600 text-sm font-medium">
                         View Tutorial
                       </button>
                     </div>
@@ -289,6 +292,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
                         Need help? Our support team is here to assist you.
                       </p>
                       <button className="text-sky-600 hover:text-sky-700 dark:text-sky-400 dark:hover:text-sky-300 text-sm font-medium">
+                      <button className="text-brand-orange hover:text-orange-600 dark:text-brand-orange dark:hover:text-orange-600 text-sm font-medium">
                         Contact Us
                       </button>
                     </div>
@@ -315,7 +319,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
           </button>
           <button
             onClick={handleSave}
-            className="px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-lg transition-colors"
+            className="px-4 py-2 bg-brand-orange hover:bg-orange-600 text-white rounded-lg transition-colors"
           >
             Save Changes
           </button>

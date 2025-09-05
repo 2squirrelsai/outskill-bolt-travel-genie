@@ -70,7 +70,7 @@ export const EditActivityModal: React.FC<EditActivityModalProps> = ({ activity, 
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Edit Activity</h3>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+            className="flex-1 bg-brand-orange text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors"
           >
             <X className="w-6 h-6" />
           </button>
