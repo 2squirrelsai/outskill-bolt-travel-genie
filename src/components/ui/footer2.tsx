@@ -82,9 +82,7 @@ const Footer2 = ({
             <div className="col-span-2 mb-8 lg:mb-0">
               <div className="flex items-center gap-2 lg:justify-start">
                 <a href={logo.url} className="flex items-center gap-2">
-                  <div className="w-10 h-10 bg-gradient-to-r from-sky-500 to-blue-600 rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-lg">✈️</span>
-                  </div>
+                  <img src="/logo.png" alt={logo.alt} className="w-10 h-10 object-contain" />
                   <p className="text-xl font-semibold text-gray-900 dark:text-white">{logo.title}</p>
                 </a>
               </div>
