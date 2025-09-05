@@ -277,7 +277,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
                     <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
                       <h4 className="font-medium text-gray-900 dark:text-white mb-2">Getting Started</h4>
                       <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
-                        Learn how to create your first trip and use TravelGenie's features.
+                        Learn how to create your first trip and use TravelThread's features.
                       </p>
                       <button className="text-sky-600 hover:text-sky-700 dark:text-sky-400 dark:hover:text-sky-300 text-sm font-medium">
                         View Tutorial
@@ -295,7 +295,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
                     <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
                       <h4 className="font-medium text-gray-900 dark:text-white mb-2">App Version</h4>
                       <p className="text-sm text-gray-600 dark:text-gray-300">
-                        TravelGenie v1.0.0
+                        TravelThread v1.0.0
                       </p>
                     </div>
                   </div>
