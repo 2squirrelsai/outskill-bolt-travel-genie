@@ -7,7 +7,7 @@ import { AuthModal } from './components/AuthModal';
 import { SettingsModal } from './components/SettingsModal';
 import { DeleteTripModal } from './components/DeleteTripModal';
 import { Footer2 } from './components/ui/footer2';
-import { SignInPageDemo } from './components/ui/sign-in-demo';
+import SignInPageDemo from './components/ui/sign-in-demo';
 import { MapPin } from 'lucide-react';
 import { useTrip } from './hooks/useTrip';
 import { useAuth } from './hooks/useAuth';
