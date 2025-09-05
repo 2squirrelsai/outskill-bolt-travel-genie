@@ -20,10 +20,10 @@ function App() {
   const { user, loading: authLoading } = useAuth();
 
   useEffect(() => {
-    if (user && !loading) {
+    if (user) {
       loadTrips();
     }
-  }, [user, loadTrips, loading]);
+  }, [user, loadTrips]);
 
   const handleCreateTrip = (
     title: string,

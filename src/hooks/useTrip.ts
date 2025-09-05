@@ -14,7 +14,7 @@ const defaultPreferences: TravelPreferences = {
 export const useTrip = () => {
   const [currentTrip, setCurrentTrip] = useState<Trip | null>(null);
   const [trips, setTrips] = useState<Trip[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const { user } = useAuth();
 
   const createTrip = useCallback((
@@ -337,7 +337,10 @@ export const useTrip = () => {
   }, [currentTrip, user]);
 
   const loadTrips = useCallback(async () => {
-    if (!user) return;
+    if (!user) {
+      setLoading(false);
+      return;
+    }
 
     setLoading(true);
     try {
@@ -349,6 +352,7 @@ export const useTrip = () => {
 
       if (tripsError) {
         console.error('Error loading trips:', tripsError);
+        setLoading(false);
         return;
       }
 
@@ -361,6 +365,7 @@ export const useTrip = () => {
 
       if (activitiesError) {
         console.error('Error loading activities:', activitiesError);
+        setLoading(false);
         return;
       }
 
@@ -414,7 +419,6 @@ export const useTrip = () => {
       });
 
       setTrips(convertedTrips);
-      // Don't automatically set current trip - let user choose
     } catch (error) {
       console.error('Error loading trips:', error);
     } finally {
@@ -422,6 +426,15 @@ export const useTrip = () => {
     }
   }, [user]);
 
+  // Initialize loading state when user changes
+  useEffect(() => {
+    if (user === null) {
+      setLoading(false);
+      setTrips([]);
+    } else if (user) {
+      setLoading(true);
+    }
+  }, [user]);
   return {
     currentTrip,
     trips,
