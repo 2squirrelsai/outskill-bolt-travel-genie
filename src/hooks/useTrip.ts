@@ -402,5 +402,6 @@ export const useTrip = () => {
     setCurrentTrip,
     loadTrips,
     deleteTrip
+    deleteTrip
   };
 };
