@@ -153,7 +153,6 @@ export const TripsListView: React.FC<TripsListViewProps> = ({
                     <div className="p-6">
                       <div className="flex items-start justify-between mb-4">
                         <div className="flex-1">
-                          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
                           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-brand-orange dark:group-hover:text-brand-orange transition-colors">
                             {trip.title}
                           </h3>
