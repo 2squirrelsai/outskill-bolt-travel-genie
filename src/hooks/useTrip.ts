@@ -400,6 +400,7 @@ export const useTrip = () => {
     editActivity,
     updatePreferences,
     setCurrentTrip,
-    loadTrips
+    loadTrips,
+    deleteTrip
   };
 };

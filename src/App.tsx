@@ -139,7 +139,7 @@ function App() {
   return (
     <>
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <Header currentTrip={currentTrip} onNewTrip={handleNewTrip} onSignIn={handleSignIn} onShowSettings={handleShowSettings} />
+      <Header currentTrip={currentTrip} onNewTrip={handleNewTrip} onSignIn={handleSignIn} onShowSettings={handleShowSettings} onDeleteTrip={handleDeleteTrip} />
       <ItineraryView
         trip={currentTrip}
         onAddActivity={addActivity}
@@ -152,6 +152,12 @@ function App() {
     {/* Modals */}
     <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
     <SettingsModal isOpen={showSettingsModal} onClose={() => setShowSettingsModal(false)} />
+    <DeleteTripModal 
+      isOpen={showDeleteTripModal} 
+      trip={currentTrip}
+      onClose={() => setShowDeleteTripModal(false)}
+      onConfirm={handleConfirmDeleteTrip}
+    />
     </>
   );
 }

@@ -91,7 +91,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTrip, onNewTrip, onSignIn
                 >
                   {currentTrip ? 'New Trip' : 'Start Planning'}
                 </button>
-                <UserMenu onShowSettings={onShowSettings} />
+                <UserMenu onShowSettings={onShowSettings} onDeleteTrip={onDeleteTrip} />
               </>
             ) : (
               <button
